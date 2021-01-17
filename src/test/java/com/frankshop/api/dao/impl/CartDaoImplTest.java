@@ -1,19 +1,19 @@
 package com.frankshop.api.dao.impl;
 
-import com.frankshop.api.entity.Vehicle;
+import com.frankshop.api.entity.Cart;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class VehicleDaoImplTest extends BaseDaoTest<Vehicle> {
+public class CartDaoImplTest extends BaseDaoTest<Cart> {
 
     @Autowired
-    VehicleDaoImpl dao;
+    CartDaoImpl dao;
 
     @Override
-    public VehicleDaoImpl getDao() {
+    public CartDaoImpl getDao() {
         return dao;
     }
 
@@ -23,11 +23,10 @@ public class VehicleDaoImplTest extends BaseDaoTest<Vehicle> {
     }
 
     @Override
-    public Vehicle createObject(String id) {
-        Vehicle v = new Vehicle();
-        v.set_id(id);
+    public Cart createObject(String id) {
+        Cart v = new Cart();
+        v.setId(id);
         return v;
     }
-    
 
 }

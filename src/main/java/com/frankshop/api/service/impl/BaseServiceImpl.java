@@ -33,4 +33,10 @@ public abstract class BaseServiceImpl<D extends BaseDomain, E extends BaseEntity
     public Optional<D> findById(String id) {
         return Optional.ofNullable(getMapper().toDomain(getDao().findById(id).get()));
     }
+
+    public D save(D data) {
+        E entityData = getMapper().toEntity(data);
+        return getMapper().toDomain(getDao().save(entityData));
+    }
+
 }

@@ -1,19 +1,19 @@
 package com.frankshop.api.service.impl;
 
-import com.frankshop.api.domain.Vehicle;
+import com.frankshop.api.domain.Warehouse;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class VehicleServiceImplTest extends BaseServiceTest<Vehicle, com.frankshop.api.entity.Vehicle> {
+public class WarehouseServiceImplTest extends BaseServiceTest<Warehouse, com.frankshop.api.entity.Warehouse> {
 
     @Autowired
-    VehicleServiceImpl service;
+    WarehouseServiceImpl service;
 
     @Override
-    public VehicleServiceImpl getService() {
+    public WarehouseServiceImpl getService() {
         return service;
     }
 
@@ -23,9 +23,10 @@ public class VehicleServiceImplTest extends BaseServiceTest<Vehicle, com.franksh
     }
 
     @Override
-    public Vehicle createObject(String id) {
-        Vehicle v = new Vehicle();
-        v.set_id(id);
+    public Warehouse createObject(String id) {
+    
+        Warehouse v = new Warehouse();
+        v.setId(id);
         return v;
     }
 

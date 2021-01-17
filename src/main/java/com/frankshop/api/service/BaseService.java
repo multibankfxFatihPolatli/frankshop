@@ -18,4 +18,6 @@ public abstract interface BaseService<D extends BaseDomain, E extends BaseEntity
 
     public Optional<D> findById(String id);
 
+    public D save(D data);
+
 }

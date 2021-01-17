@@ -10,7 +10,6 @@ import com.frankshop.api.mapper.BaseEntityMapper;
 
 import org.springframework.data.domain.Pageable;
 
-
 public abstract class BaseServiceImpl<D extends BaseDomain, E extends BaseEntity> {
 
     public abstract BaseDao<E> getDao();
@@ -24,6 +23,11 @@ public abstract class BaseServiceImpl<D extends BaseDomain, E extends BaseEntity
     public List<D> list(Pageable pageable) {
 
         return getMapper().toDomainList(getDao().list(pageable));
+    }
+
+    public List<D> listAllByIds(List<String> ids) {
+
+        return getMapper().toDomainList(getDao().listAllById(ids));
     }
 
     public Optional<D> findById(String id) {

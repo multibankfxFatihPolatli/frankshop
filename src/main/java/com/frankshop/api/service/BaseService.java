@@ -14,6 +14,8 @@ public abstract interface BaseService<D extends BaseDomain, E extends BaseEntity
 
     public List<D> list(Pageable pageable);
 
+    public List<D> listAllByIds(List<String> ids);
+
     public Optional<D> findById(String id);
 
 }

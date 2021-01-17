@@ -1,5 +1,6 @@
 package com.frankshop.api.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,9 +21,19 @@ public abstract class BaseDaoImpl<E extends BaseEntity> {
         return getRepository().findAll(pageable).getContent();
     }
 
+    public List<E> listAllById(List<String> ids) {
+        List<E> result = new ArrayList<>();
+        getRepository().findAllById(ids).forEach(result::add);
+
+        return result;
+    }
+
     public Optional<E> findById(String id) {
         return getRepository().findById(id);
     }
 
-    
+    public E save(E data) {
+
+        return getRepository().save(data);
+    }
 }

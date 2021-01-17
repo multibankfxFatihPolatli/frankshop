@@ -6,4 +6,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface BaseRepository<K extends BaseEntity> extends MongoRepository<K, String> {
 
+    
 }

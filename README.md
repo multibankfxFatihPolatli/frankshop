@@ -33,3 +33,11 @@
 ```
    http://localhost:8080/swagger-ui/
 ```
+- prepared docker image
+
+```
+    docker push fatihpolatli/frankshop:0.0.1
+
+    https://hub.docker.com/r/fatihpolatli/frankshop
+```
+

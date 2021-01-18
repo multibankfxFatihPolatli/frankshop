@@ -28,17 +28,45 @@ public class CartControllerTest {
     private CartDomainMapper mapper;
 
     @Test
-    public void addToCartTokenErrorTest() throws Exception {
+    public void addToCartInvalidTokenErrorTest() throws Exception {
 
-        this.mockMvc.perform(get("/api/carts/add/vehicle/22")).andDo(print()).andExpect(status().is(400))
-                .andExpect(content().string(containsString("valid token required")));
+        this.mockMvc.perform(get("/api/carts/add/vehicle/22").header("Authorization", "token_??")).andDo(print())
+                .andExpect(status().is(400)).andExpect(content().string(containsString("valid token required")));
     }
 
     @Test
-    public void removeFromCartTokenErrorTest() throws Exception {
+    public void addToCartMissingTokenErrorTest() throws Exception {
+
+        this.mockMvc.perform(get("/api/carts/add/vehicle/22")).andDo(print()).andExpect(status().is(400))
+                .andExpect(content().string(containsString("Missing request header 'Authorization'")));
+    }
+
+    @Test
+    public void removeFromCartInvalidTokenErrorTest() throws Exception {
+
+        this.mockMvc.perform(get("/api/carts/remove/vehicle/22").header("Authorization", "token_??")).andDo(print())
+                .andExpect(status().is(400)).andExpect(content().string(containsString("valid token required")));
+    }
+
+    @Test
+    public void removeFromCartMissingTokenErrorTest() throws Exception {
 
         this.mockMvc.perform(get("/api/carts/remove/vehicle/22")).andDo(print()).andExpect(status().is(400))
-                .andExpect(content().string(containsString("valid token required")));
+                .andExpect(content().string(containsString("Missing request header 'Authorization'")));
+    }
+
+    @Test
+    public void findUserCartMissingTokenErrorTest() throws Exception {
+
+        this.mockMvc.perform(get("/api/carts/remove/vehicle/22")).andDo(print()).andExpect(status().is(400))
+                .andExpect(content().string(containsString("Missing request header 'Authorization'")));
+    }
+
+    @Test
+    public void findUserCartInvalidTokenErrorTest() throws Exception {
+
+        this.mockMvc.perform(get("/api/carts/remove/vehicle/22").header("Authorization", "token_??")).andDo(print())
+                .andExpect(status().is(400)).andExpect(content().string(containsString("valid token required")));
     }
 
 }

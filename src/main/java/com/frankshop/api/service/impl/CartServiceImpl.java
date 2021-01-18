@@ -77,4 +77,10 @@ public class CartServiceImpl extends BaseServiceImpl<Cart, com.frankshop.api.ent
         return getMapper().toDomain(dao.save(resultCart));
     }
 
+    @Override
+    public Optional<Cart> findByUserId(String userId) {
+
+        return Optional.ofNullable(getMapper().toDomain(dao.findByUserId(userId).get()));
+    }
+
 }
